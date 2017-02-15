@@ -43,3 +43,8 @@ RUN \
 	cd / && \
 	rm -rf /git-build
 	
+RUN \
+	touch /var/lib/rpm/* && \
+	yum -y install openssh-clients && \
+	yum clean all
+

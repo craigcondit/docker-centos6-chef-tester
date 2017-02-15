@@ -13,16 +13,12 @@ RUN \
 	make -j4 && \
 	make install && \
 	cd / && \
-	rm -rf /ruby-build
-
-RUN \
+	rm -rf /ruby-build && \
 	mkdir -p /chef-rpms && \
 	cd /chef-rpms && \
 	curl -O https://packages.chef.io/files/stable/chef/12.12.15/el/6/chef-12.12.15-1.el6.x86_64.rpm && \
 	yum -y localinstall chef-12.12.15-1.el6.x86_64.rpm && \
 	yum clean all && \
 	cd / && \
-	rm -rf /chef-rpms
-
-RUN \
+	rm -rf /chef-rpms && \
 	gem install --no-ri --no-rdoc berkshelf -v 5.6.2

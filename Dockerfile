@@ -2,6 +2,7 @@ FROM insideo/centos6-java8-build
 MAINTAINER ccondit@randomcoder.com
 
 RUN \
+	touch /var/lib/rpm/* && \
 	yum -y install openssl-devel && \
 	yum clean all && \
 	mkdir -p /ruby-build && \
@@ -28,7 +29,8 @@ RUN \
 	gem install --no-ri --no-rdoc berkshelf -v 5.6.2
 
 RUN \
-	yum -y install gettext perl-ExtUtils-MakeMaker && \
+	touch /var/lib/rpm/* && \
+	yum -y install gettext perl-ExtUtils-MakeMaker expat curl-devel && \
 	yum clean all && \
 	mkdir -p /git-build && \
 	cd /git-build && \

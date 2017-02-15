@@ -38,4 +38,6 @@ RUN \
 	./configure --prefix=/usr/local && \
 	make -j4 && \
 	make install && \
+	cd / && \
+	rm -rf /git-build
 	
